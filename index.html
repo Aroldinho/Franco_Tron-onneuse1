@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Franco Tronçonneuse - Machines Agricoles à Yaoundé</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <!-- Notre CSS -->
+    <link rel="stylesheet" href="arold.css" />
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#home">
+                <img src="1787037275898.jpg" alt="Franco Tronçonneuse" height="40" style="border-radius: 4px;" />
+                <span data-key="brand">Franco Tronçonneuse</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home" data-key="nav_home">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about" data-key="nav_about">À Propos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services" data-key="nav_services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#products" data-key="nav_products">Produits</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#location" data-key="nav_location">Localisation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact" data-key="nav_contact">Contact</a></li>
+                </ul>
+                <!-- Sélecteur de langue -->
+                <div class="ms-3">
+                    <button id="langFr" class="btn btn-sm btn-outline-light active">FR</button>
+                    <button id="langEn" class="btn btn-sm btn-outline-light">EN</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1 data-key="hero_title">Franco Tronçonneuse</h1>
+                <p data-key="hero_subtitle">Votre partenaire de confiance pour les machines agricoles</p>
+                <p style="font-size: 1.1rem; opacity: 0.9; margin-bottom: 40px;" data-key="hero_tagline">Vente • Entretien • Réparation</p>
+                <a href="#contact" class="btn btn-primary">
+                    <i class="fas fa-phone"></i> <span data-key="hero_btn">Nous Contacter</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- À Propos -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title" data-key="about_title">À Propos de Franco Tronçonneuse</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3 data-key="about_who">Qui sommes-nous ?</h3>
+                    <p data-key="about_desc">Franco Tronçonneuse est une entreprise établie à Yaoundé, basée à Etoudi (face à Afriland First Bank), spécialisée dans la vente, l'entretien et la réparation de machines agricoles de qualité.</p>
+                    <h3 style="margin-top: 30px;" data-key="about_advantages">Nos Avantages</h3>
+                    <ul>
+                        <li data-key="about_li1">Service professionnel et de qualité</li>
+                        <li data-key="about_li2">Équipe d'experts expérimentés</li>
+                        <li data-key="about_li3">Machines agricoles fiables et durables</li>
+                        <li data-key="about_li4">Maintenance et support technique complets</li>
+                        <li data-key="about_li5">Tarifs compétitifs et transparents</li>
+                        <li data-key="about_li6">Disponibilité et réactivité</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <i class="fas fa-tools"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+        <div class="container">
+            <h2 class="section-title" data-key="services_title">Nos Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h3 data-key="service1_title">Vente de Machines</h3>
+                    <p data-key="service1_desc">Nous proposons une large gamme de machines agricoles de qualité supérieure, sélectionnées pour leur fiabilité et leur performance.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-wrench"></i>
+                    <h3 data-key="service2_title">Maintenance</h3>
+                    <p data-key="service2_desc">Entretien régulier et préventif de vos machines pour garantir une durabilité maximale et une performance optimale.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-hammer"></i>
+                    <h3 data-key="service3_title">Réparation</h3>
+                    <p data-key="service3_desc">Service de réparation rapide et efficace avec des pièces de rechange authentiques et une garantie sur les travaux.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Produits -->
+    <section id="products" style="background: #f0f4f8; padding: 80px 0;">
+        <div class="container">
+            <h2 class="section-title" data-key="products_title">Nos Produits</h2>
+
+            <!-- Barre de recherche -->
+            <div class="search-box mb-5" style="max-width: 500px; margin: 0 auto;">
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fas fa-search"></i></span>
+                    <input type="text" id="searchInput" class="form-control" placeholder="Rechercher un produit..." data-key="search_placeholder" />
+                    <button class="btn btn-outline-secondary" type="button" id="clearSearch"><i class="fas fa-times"></i></button>
+                </div>
+            </div>
+
+            <!-- Grille des produits -->
+            <div class="row" id="productGrid">
+                <!-- Produit 1 : NDR-1000W -->
+                <div class="col-md-4 col-sm-6 product-card" data-title="Régulateur de tension automatique NDR-1000W" data-keywords="régulateur tension automatique 1000w ndr">
+                    <div class="card h-100 shadow-sm">
+                        <img src="IMG-20260901-WA0055.jpeg" class="card-img-top" alt="Régulateur NDR-1000W" style="height: 250px; object-fit: contain; background: white;">
+                        <div class="card-body">
+                            <h5 class="card-title">Régulateur de tension automatique NDR-1000W</h5>
+                            <p class="card-text">
+                                • Affichage du compteur : tension entrée/sortie<br>
+                                • Indicateurs LED : EN UTILISATION, INSOLITE, RETARDÉE<br>
+                                • Protection haute/basse tension<br>
+                                • Temps de retard sélectionnable<br>
+                                • Plage de régulation sélectionnable
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produit 2 : Carburateur RHINOMEC -->
+<div class="col-md-4 col-sm-6 product-card" data-title="Carburateur RHINOMEC" data-keywords="carburateur rhinomec pièce détachée">
+    <div class="card h-100 shadow-sm">
+        <img src="IMG-20260901-WA0115(1).jpeg" class="card-img-top" alt="Carburateur RHINOMEC" style="height: 160px; object-fit: contain; background: white;">
+        <div class="card-body">
+            <h5 class="card-title">Carburateur RHINOMEC</h5>
+            <p class="card-text">
+                • Pièce détachée d'origine<br>
+                • Compatible avec les machines agricoles<br>
+                • Performance et fiabilité
+            </p>
+        </div>
+    </div>
+</div>
+            <!-- Message si aucun résultat -->
+            <div id="noResults" class="text-center mt-4" style="display: none;">
+                <p data-key="no_results">Aucun produit ne correspond à votre recherche.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Localisation -->
+    <section id="location">
+        <div class="container">
+            <h2 class="section-title" data-key="location_title">Notre Localisation</h2>
+            <div class="location-container">
+                <div class="col-lg-12">
+                    <div class="ratio ratio-16x9 rounded shadow-sm overflow-hidden" style="height: 100%;">
+                        <iframe src="https://www.google.com/maps?q=Etoudi,Yaound%C3%A9,Cameroun&output=embed" style="border:0; width: 100%; min-height: 400px;" allowfullscreen loading="lazy"></iframe>
+                    </div>
+                </div> 
+                <div class="location-info">
+                    <h3 data-key="location_coords">Coordonnées</h3>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>
+                            <strong data-key="address_label">Adresse:</strong><br /> 
+                            <span data-key="address_text">Etoudi, Yaoundé<br /> Face à Afriland First Bank<br /> Cameroun</span>
+                        </p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <p>
+                            <strong data-key="phone_label">Téléphone:</strong><br /> 
+                            +237 673 169 184 - 697 675 880
+                        </p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>
+                            <strong data-key="email_label">Email:</strong><br /> 
+                            info@francotronconneuse.cm
+                        </p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <p>
+                            <strong data-key="hours_label">Horaires:</strong><br /> 
+                            <span data-key="hours_text">Lun-Ven: 8h00 - 18h00<br /> Sam: 9h00 - 17h00</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title" data-key="contact_title">Formulaire de Contact</h2>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name" class="form-label"><i class="fas fa-user"></i> <span data-key="form_name">Nom Complet</span></label>
+                        <input type="text" class="form-control" id="name" name="name" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="form-label"><i class="fas fa-envelope"></i> <span data-key="form_email">Adresse Email</span></label>
+                        <input type="email" class="form-control" id="email" name="email" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" class="form-label"><i class="fas fa-phone"></i> <span data-key="form_phone">Numéro de Téléphone</span></label>
+                        <input type="tel" class="form-control" id="phone" name="phone" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="subject" class="form-label"><i class="fas fa-heading"></i> <span data-key="form_subject">Sujet</span></label>
+                        <select class="form-select" id="subject" name="subject" required>
+                            <option value="" data-key="form_subject_placeholder">-- Sélectionnez un sujet --</option>
+                            <option value="vente" data-key="form_subject_sale">Vente de machines</option>
+                            <option value="maintenance" data-key="form_subject_maintenance">Demande de maintenance</option>
+                            <option value="reparation" data-key="form_subject_repair">Service de réparation</option>
+                            <option value="autre" data-key="form_subject_other">Autre demande</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="form-label"><i class="fas fa-comment"></i> <span data-key="form_message">Message</span></label>
+                        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i> <span data-key="form_submit">Envoyer le Message</span>
+                    </button>
+                </form>
+                <div id="formMessage" style="display: none; margin-top: 20px; padding: 15px; border-radius: 5px; text-align: center;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h5>
+                        <img src="1787037275898.jpg" alt="Franco Tronçonneuse" height="30" style="border-radius: 4px; margin-right: 8px;" />
+                        <span data-key="footer_brand">Franco Tronçonneuse</span>
+                    </h5>
+                    <p data-key="footer_tagline">Votre partenaire de confiance pour l'agriculture au Cameroun</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61586055965592" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://wa.me/qr/U4Y6GZMKDNGDI1" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h5 data-key="footer_services">Services</h5>
+                    <a href="#services" data-key="footer_sale">Vente de Machines</a>
+                    <a href="#services" data-key="footer_maintenance">Maintenance</a>
+                    <a href="#services" data-key="footer_repair">Réparation</a>
+                    <a href="#contact" data-key="footer_support">Support</a>
+                </div>
+                <div class="footer-section">
+                    <h5 data-key="footer_info">Informations</h5>
+                    <a href="#about" data-key="footer_about">À Propos</a>
+                    <a href="#location" data-key="footer_location">Localisation</a>
+                    <a href="#contact" data-key="footer_contact">Contact</a>
+                    <a href="#" data-key="footer_privacy">Politique de Confidentialité</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-key="footer_copyright">&copy; 2026 Franco Tronçonneuse. Tous droits réservés. | Développé avec <i class="fas fa-heart" style="color: var(--secondary-color);"></i> par des étudiants de l'IUT de Ngaoundéré</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Notre JS -->
+    <script src="index.js"></script>
+</body>
+</html>

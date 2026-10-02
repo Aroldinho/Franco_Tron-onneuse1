@@ -1,0 +1,20 @@
+const nodemailer = require('nodemailer');
+const express = require('express');
+const app = express();
+app.use(express.urlencoded({ extended: true }));
+
+app.post('/contact', async (req, res) => {
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: { user: 'vous@gmail.com', pass: 'mot_de_passe_application' }
+  });
+  
+  await transporter.sendMail({
+    from: req.body.email,
+    to: 'nguekamaroldyan1029@gmail.com',
+    subject: `Message de ${req.body.nom}`,
+    text: req.body.message
+  });
+  res.send('Message envoyé !');
+});
+app.listen(3000);

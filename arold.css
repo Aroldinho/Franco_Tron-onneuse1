@@ -394,3 +394,40 @@ footer {
     section { padding: 50px 0; }
     .about-image i { font-size: 100px; }
 }
+
+/* ====== Réduction des tailles des produits ====== */
+#products .card {
+    padding: 0.5rem;
+}
+
+#products .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+#products .card-text {
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+#products .card-body {
+    padding: 0.75rem 1rem;
+}
+
+/* Optionnel : réduire l'espacement entre les cartes */
+#products .col-md-4 {
+    padding: 0 10px;
+}
+
+/* Masquer tous les produits par défaut */
+#products .product-card {
+    display: none;
+}
+
+/* Message d'aide initial */
+#searchHint {
+    text-align: center;
+    color: #666;
+    font-size: 1rem;
+    margin-top: 20px;
+}

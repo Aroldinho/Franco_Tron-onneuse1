@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
             service3_desc: "Service de réparation rapide et efficace avec des pièces de rechange authentiques et une garantie sur les travaux.",
             products_title: "Nos Produits",
             search_placeholder: "Rechercher un produit...",
+            search_hint: "🔍 Tapez le nom du produit que vous voulez avoir",
             no_results: "Aucun produit ne correspond à votre recherche.",
             location_title: "Notre Localisation",
             location_coords: "Coordonnées",
@@ -66,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
             footer_location: "Localisation",
             footer_contact: "Contact",
             footer_privacy: "Politique de Confidentialité",
-            footer_copyright: "© 2026 Franco Tronçonneuse. Tous droits réservés. | Développé avec ❤ par des étudiants de l'IUT de Ngaoundéré"
+            footer_copyright: "© 2026 Franco Tronçonneuse. Tous droits réservés. | Développé par NGUEKAM AROLD étudiant de l'IUT de Ngaoundéré"
         },
         en: {
             brand: "Franco Chainsaw",
@@ -99,6 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
             service3_desc: "Fast and efficient repair service with authentic spare parts and a warranty on work.",
             products_title: "Our Products",
             search_placeholder: "Search for a product...",
+            search_hint: "🔍 Type the name of the product you want to have",
             no_results: "No products match your search.",
             location_title: "Our Location",
             location_coords: "Coordinates",
@@ -132,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
             footer_location: "Location",
             footer_contact: "Contact",
             footer_privacy: "Privacy Policy",
-            footer_copyright: "© 2026 Franco Chainsaw. All rights reserved. | Made with ❤ by students of IUT of Ngaoundéré"
+            footer_copyright: "© 2026 Franco Chainsaw. All rights reserved. | Developed  by NGUEKAM AROLD student at IUT of Ngaoundéré"
         }
     };
 
@@ -164,6 +166,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
         document.getElementById('langFr').classList.toggle('active', lang === 'fr');
         document.getElementById('langEn').classList.toggle('active', lang === 'en');
+
+        // Mettre à jour le message d'aide si affiché
+        if (searchHint) {
+            searchHint.textContent = dict.search_hint;
+        }
+        if (noResults && noResults.style.display !== 'none') {
+            noResults.querySelector('p').textContent = dict.no_results;
+        }
     }
 
     // ====== Événements des boutons de langue ======
@@ -189,41 +199,67 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // ====== Formulaire de contact ======
-    const contactForm = document.getElementById('contactForm');
-    const formMessage = document.getElementById('formMessage');
+    // ====== Formulaire de contact (envoi via FormSubmit) ======
+const contactForm = document.getElementById('contactForm');
+const formMessage = document.getElementById('formMessage');
 
-    if (contactForm) {
-        contactForm.addEventListener('submit', function (e) {
-            e.preventDefault();
+if (contactForm) {
+    contactForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
 
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                phone: document.getElementById('phone').value,
-                subject: document.getElementById('subject').value,
-                message: document.getElementById('message').value
-            };
+        const formData = new FormData(contactForm);
 
-            const msg = currentLang === 'fr'
-                ? `Merci ${formData.name} ! Votre message a été reçu. Nous vous contacterons très bientôt à ${formData.email}.`
-                : `Thank you ${formData.name}! Your message has been received. We will contact you soon at ${formData.email}.`;
+        // Message de chargement
+        formMessage.style.display = 'block';
+        formMessage.style.background = '#fff3cd';
+        formMessage.style.color = '#856404';
+        formMessage.style.border = '1px solid #ffeeba';
+        formMessage.innerHTML = currentLang === 'fr'
+            ? '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...'
+            : '<i class="fas fa-spinner fa-spin"></i> Sending...';
 
-            formMessage.style.display = 'block';
-            formMessage.style.background = '#d4edda';
-            formMessage.style.color = '#155724';
-            formMessage.style.border = '1px solid #c3e6cb';
-            formMessage.innerHTML = `<i class="fas fa-check-circle"></i> <strong>${msg}</strong>`;
+        try {
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
 
-            contactForm.reset();
+            if (response.ok) {
+                const name = formData.get('name');
+                const email = formData.get('email');
 
-            setTimeout(() => {
-                formMessage.style.display = 'none';
-            }, 5000);
+                const msg = currentLang === 'fr'
+                    ? `Merci ${name} ! Votre message a bien été envoyé à nguekamaroldyan1029@gmail.com. Nous vous répondrons à ${email}.`
+                    : `Thank you ${name}! Your message has been sent to nguekamaroldyan1029@gmail.com. We will reply to ${email}.`;
 
-            console.log('Données du formulaire:', formData);
-        });
-    }
+                formMessage.style.background = '#d4edda';
+                formMessage.style.color = '#155724';
+                formMessage.style.border = '1px solid #c3e6cb';
+                formMessage.innerHTML = `<i class="fas fa-check-circle"></i> <strong>${msg}</strong>`;
+
+                contactForm.reset();
+            } else {
+                throw new Error('Erreur serveur');
+            }
+        } catch (error) {
+            formMessage.style.background = '#f8d7da';
+            formMessage.style.color = '#721c24';
+            formMessage.style.border = '1px solid #f5c6cb';
+            formMessage.innerHTML = currentLang === 'fr'
+                ? '<i class="fas fa-exclamation-triangle"></i> Une erreur est survenue. Veuillez réessayer.'
+                : '<i class="fas fa-exclamation-triangle"></i> An error occurred. Please try again.';
+            console.error('Erreur formulaire :', error);
+        }
+
+        // Masquer le message après 8 secondes
+        setTimeout(() => {
+            formMessage.style.display = 'none';
+        }, 8000);
+    });
+}
 
     // ====== Smooth scroll ======
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -267,14 +303,36 @@ document.addEventListener('DOMContentLoaded', function () {
         yearSpan.textContent = new Date().getFullYear();
     }
 
-    // ====== RECHERCHE DE PRODUITS ======
+    // ====== RECHERCHE DE PRODUITS (images masquées par défaut) ======
     const searchInput = document.getElementById('searchInput');
     const productCards = document.querySelectorAll('.product-card');
     const noResults = document.getElementById('noResults');
     const clearBtn = document.getElementById('clearSearch');
 
+    // Créer dynamiquement le message d'aide (s'il n'existe pas)
+    let searchHint = document.getElementById('searchHint');
+    if (!searchHint && searchInput) {
+        searchHint = document.createElement('p');
+        searchHint.id = 'searchHint';
+        searchHint.textContent = translations[currentLang].search_hint;
+        // Insérer après la grille des produits
+        document.getElementById('productGrid').after(searchHint);
+    }
+
     function filterProducts(query) {
         const q = query.toLowerCase().trim();
+
+        // Cas 1 : champ vide → tout masquer + afficher l'aide
+        if (q === '') {
+            productCards.forEach(card => {
+                card.style.display = 'none';
+            });
+            if (searchHint) searchHint.style.display = 'block';
+            if (noResults) noResults.style.display = 'none';
+            return;
+        }
+
+        // Cas 2 : il y a une recherche → filtrer
         let found = false;
 
         productCards.forEach(card => {
@@ -282,7 +340,9 @@ document.addEventListener('DOMContentLoaded', function () {
             const keywords = (card.dataset.keywords || '').toLowerCase();
             const text = card.textContent.toLowerCase();
 
-            const match = q === '' || title.includes(q) || keywords.includes(q) || text.includes(q);
+            const normalize = str => str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+            const nq = normalize(q);
+            const match = normalize(title).includes(nq) || normalize(keywords).includes(nq) || normalize(text).includes(nq);
 
             if (match) {
                 card.style.display = 'block';
@@ -292,7 +352,9 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
 
-        noResults.style.display = found || q === '' ? 'none' : 'block';
+        // Masquer l'aide, afficher ou non le message "aucun résultat"
+        if (searchHint) searchHint.style.display = 'none';
+        if (noResults) noResults.style.display = found ? 'none' : 'block';
     }
 
     if (searchInput) {
@@ -306,7 +368,7 @@ document.addEventListener('DOMContentLoaded', function () {
             searchInput.focus();
         });
 
-        // Initialisation
+        // État initial : rien d'affiché
         filterProducts('');
     }
 
